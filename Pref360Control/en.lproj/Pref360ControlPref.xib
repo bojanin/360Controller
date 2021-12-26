@@ -58,7 +58,7 @@
         <window title="&lt;&lt; do not localize &gt;&gt;" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="3g4-A8-wfV" userLabel="PrefPane">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="374" y="240" width="668" height="419"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1800" height="1125"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1800" height="1131"/>
             <view key="contentView" id="Z4H-05-G2i">
                 <rect key="frame" x="0.0" y="0.0" width="668" height="419"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -503,7 +503,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-pO-cIT">
-                                            <rect key="frame" x="18" y="355" width="633" height="25"/>
+                                            <rect key="frame" x="17" y="355" width="635" height="25"/>
                                             <popUpButtonCell key="cell" type="push" title="Item1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="ZBC-oI-z5d" id="LNS-E3-icM">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
@@ -520,19 +520,19 @@
                                             </connections>
                                         </popUpButton>
                                         <box autoresizesSubviews="NO" borderType="line" title="Deadzones" translatesAutoresizingMaskIntoConstraints="NO" id="k7f-mn-n3T">
-                                            <rect key="frame" x="300" y="66" width="351" height="284"/>
+                                            <rect key="frame" x="300" y="66" width="351" height="285"/>
                                             <view key="contentView" id="lUi-Wg-cgY">
-                                                <rect key="frame" x="3" y="3" width="345" height="266"/>
+                                                <rect key="frame" x="3" y="3" width="345" height="267"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <box autoresizesSubviews="NO" borderType="line" title="Right Stick" translatesAutoresizingMaskIntoConstraints="NO" id="TKg-sh-mjm">
-                                                        <rect key="frame" x="181" y="8" width="151" height="248"/>
+                                                        <rect key="frame" x="181" y="8" width="151" height="249"/>
                                                         <view key="contentView" id="9YM-Gl-vFd">
-                                                            <rect key="frame" x="3" y="3" width="145" height="230"/>
+                                                            <rect key="frame" x="3" y="3" width="145" height="231"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="Xd5-aE-ddG">
-                                                                    <rect key="frame" x="14" y="112" width="69" height="18"/>
+                                                                    <rect key="frame" x="14" y="112" width="73" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Invert X" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="elG-G6-ZET">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -542,7 +542,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ASV-58-sZ1">
-                                                                    <rect key="frame" x="14" y="92" width="70" height="18"/>
+                                                                    <rect key="frame" x="14" y="90" width="68" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Invert Y" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="6Kn-lQ-AaB">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -552,7 +552,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hxn-JO-bAn">
-                                                                    <rect key="frame" x="25" y="47" width="57" height="18"/>
+                                                                    <rect key="frame" x="25" y="48" width="57" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Linked" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="hyw-2p-8xu">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -562,7 +562,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <slider verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-Ed-Icp">
-                                                                    <rect key="frame" x="16" y="68" width="117" height="19"/>
+                                                                    <rect key="frame" x="16" y="69" width="117" height="19"/>
                                                                     <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32768" tickMarkPosition="above" sliderType="linear" id="1uA-oq-a0L">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                     </sliderCell>
@@ -571,7 +571,7 @@
                                                                     </connections>
                                                                 </slider>
                                                                 <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26X-Mo-i1h">
-                                                                    <rect key="frame" x="16" y="24" width="117" height="18"/>
+                                                                    <rect key="frame" x="16" y="25" width="117" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Normalize" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5TH-CS-wl6">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -581,7 +581,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="vof-lR-v7y" userLabel="My Analog Stick R" customClass="MyAnalogStick">
-                                                                    <rect key="frame" x="34" y="142" width="77" height="77"/>
+                                                                    <rect key="frame" x="34" y="143" width="77" height="77"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="77" id="8if-Eb-Vw2"/>
                                                                         <constraint firstAttribute="height" constant="77" id="I7B-1Y-fXE"/>
@@ -609,13 +609,13 @@
                                                         </constraints>
                                                     </box>
                                                     <box autoresizesSubviews="NO" borderType="line" title="Left Stick" translatesAutoresizingMaskIntoConstraints="NO" id="XdF-ba-S8X">
-                                                        <rect key="frame" x="13" y="8" width="151" height="248"/>
+                                                        <rect key="frame" x="13" y="8" width="151" height="249"/>
                                                         <view key="contentView" id="Fd4-5U-9t8">
-                                                            <rect key="frame" x="3" y="3" width="145" height="230"/>
+                                                            <rect key="frame" x="3" y="3" width="145" height="231"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="bu6-hT-9ND">
-                                                                    <rect key="frame" x="14" y="112" width="69" height="18"/>
+                                                                    <rect key="frame" x="14" y="112" width="73" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Invert X" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="I8N-Ll-Q29">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -625,7 +625,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ejG-0P-eK6">
-                                                                    <rect key="frame" x="14" y="92" width="69" height="18"/>
+                                                                    <rect key="frame" x="14" y="90" width="73" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Invert Y" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="C6W-9e-zqx">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -635,7 +635,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <slider verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w59-p2-gVR">
-                                                                    <rect key="frame" x="16" y="68" width="117" height="19"/>
+                                                                    <rect key="frame" x="16" y="69" width="117" height="19"/>
                                                                     <sliderCell key="cell" continuous="YES" alignment="left" maxValue="32768" tickMarkPosition="above" sliderType="linear" id="k4Y-aS-OZs">
                                                                         <font key="font" size="12" name="Helvetica"/>
                                                                     </sliderCell>
@@ -644,7 +644,7 @@
                                                                     </connections>
                                                                 </slider>
                                                                 <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2Y-4P-SwU">
-                                                                    <rect key="frame" x="25" y="47" width="57" height="18"/>
+                                                                    <rect key="frame" x="25" y="48" width="57" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Linked" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="k9z-Ya-OO3">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="smallSystem"/>
@@ -654,7 +654,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aq6-OM-5G7">
-                                                                    <rect key="frame" x="16" y="24" width="117" height="18"/>
+                                                                    <rect key="frame" x="16" y="25" width="117" height="18"/>
                                                                     <buttonCell key="cell" type="check" title="Normalize" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Nbf-a1-ZeT">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
@@ -664,7 +664,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="zxH-Fb-uux" userLabel="My Analog Stick L" customClass="MyAnalogStick">
-                                                                    <rect key="frame" x="34" y="142" width="77" height="77"/>
+                                                                    <rect key="frame" x="34" y="143" width="77" height="77"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="77" id="6aK-uV-4t7"/>
                                                                         <constraint firstAttribute="width" constant="77" id="dQw-ck-ELz"/>
@@ -703,13 +703,13 @@
                                             </constraints>
                                         </box>
                                         <box autoresizesSubviews="NO" borderType="line" title="Options" translatesAutoresizingMaskIntoConstraints="NO" id="Q4L-nM-vW8">
-                                            <rect key="frame" x="17" y="16" width="281" height="334"/>
+                                            <rect key="frame" x="17" y="16" width="281" height="335"/>
                                             <view key="contentView" id="9Me-le-Oh3">
-                                                <rect key="frame" x="3" y="3" width="275" height="316"/>
+                                                <rect key="frame" x="3" y="3" width="275" height="317"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LZ6-57-3mT">
-                                                        <rect key="frame" x="10" y="5" width="104" height="32"/>
+                                                        <rect key="frame" x="9" y="5" width="98" height="32"/>
                                                         <buttonCell key="cell" type="push" title="Uninstall..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QvN-mn-giT">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -719,7 +719,7 @@
                                                         </connections>
                                                     </button>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="362-jh-07U">
-                                                        <rect key="frame" x="33" y="115" width="228" height="167"/>
+                                                        <rect key="frame" x="33" y="114" width="228" height="167"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="167" id="Nk2-fU-1WJ"/>
                                                         </constraints>
@@ -735,7 +735,7 @@ Due to some internal limitations, you need to connect your device once to be abl
                                                         </textFieldCell>
                                                     </textField>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="bAx-wa-r7r">
-                                                        <rect key="frame" x="14" y="290" width="103" height="18"/>
+                                                        <rect key="frame" x="14" y="290" width="107" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Enable Driver" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FhM-1g-G1s">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -745,7 +745,7 @@ Due to some internal limitations, you need to connect your device once to be abl
                                                         </connections>
                                                     </button>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4O-Ly-PFn">
-                                                        <rect key="frame" x="14" y="43" width="247" height="42"/>
+                                                        <rect key="frame" x="14" y="42" width="247" height="42"/>
                                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="justified" title="Click on this button to completely remove this driver from your computer (you may need to restart):" id="ix8-GT-Crq">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -753,7 +753,7 @@ Due to some internal limitations, you need to connect your device once to be abl
                                                         </textFieldCell>
                                                     </textField>
                                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="NTf-yJ-U41">
-                                                        <rect key="frame" x="12" y="94" width="247" height="5"/>
+                                                        <rect key="frame" x="12" y="93" width="247" height="5"/>
                                                     </box>
                                                 </subviews>
                                             </view>
@@ -779,7 +779,7 @@ Due to some internal limitations, you need to connect your device once to be abl
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="egx-oO-7cv">
-                                                        <rect key="frame" x="14" y="6" width="249" height="18"/>
+                                                        <rect key="frame" x="14" y="5" width="253" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Pretend to be an Xbox 360 Controller" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="8Yr-CF-I6K">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>

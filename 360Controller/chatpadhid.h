@@ -22,6 +22,7 @@
  */
 
 // F:\Documents and Settings\Desktop\hid\ChatPad_Keyboard.h
+#pragma once
 
 
 static const unsigned char ReportDescriptor[] = {

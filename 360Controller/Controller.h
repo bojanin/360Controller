@@ -21,111 +21,116 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#pragma once
 #include <IOKit/hid/IOHIDDevice.h>
 
-class Xbox360ControllerClass : public IOHIDDevice
-{
-    OSDeclareDefaultStructors(Xbox360ControllerClass)
+#include <IOKit/usb/IOUSBHostDevice.h>
 
-private:
-    bool pretend360;
+namespace Controller {
+  class Xbox360ControllerClass : public IOHIDDevice
+  {
+  OSDeclareDefaultStructors(Xbox360ControllerClass)
 
-private:
-    OSString* getDeviceString(UInt8 index,const char *def=NULL) const;
+  private:
+  bool pretend360;
 
-public:
-    virtual bool start(IOService *provider);
+  private:
+  OSString* getDeviceString(UInt8 index,const char *def=NULL) const;
 
-    virtual IOReturn setProperties(OSObject *properties);
+  public:
+  virtual bool start(IOService *provider) override;
 
-    virtual IOReturn newReportDescriptor(IOMemoryDescriptor **descriptor) const;
+  virtual IOReturn setProperties(OSObject *properties) override;
 
-    virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0);
-    virtual IOReturn getReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options);
-    virtual IOReturn handleReport(
-                                  IOMemoryDescriptor * report,
-                                  IOHIDReportType      reportType = kIOHIDReportTypeInput,
-                                  IOOptionBits         options    = 0 );
+  virtual IOReturn newReportDescriptor(IOMemoryDescriptor **descriptor) const override;
 
-    virtual OSString* newManufacturerString() const;
-    virtual OSNumber* newPrimaryUsageNumber() const;
-    virtual OSNumber* newPrimaryUsagePageNumber() const;
-    virtual OSNumber* newProductIDNumber() const;
-    virtual OSString* newProductString() const;
-    virtual OSString* newSerialNumberString() const;
-    virtual OSString* newTransportString() const;
-    virtual OSNumber* newVendorIDNumber() const;
+  virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0) override;
+  virtual IOReturn getReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options) override;
+  virtual IOReturn handleReport(
+                                IOMemoryDescriptor * report,
+                                IOHIDReportType      reportType = kIOHIDReportTypeInput,
+                                IOOptionBits         options    = 0 ) override;
 
-    virtual OSNumber* newLocationIDNumber() const;
+  virtual OSString* newManufacturerString() const override;
+  virtual OSNumber* newPrimaryUsageNumber() const override;
+  virtual OSNumber* newPrimaryUsagePageNumber() const override;
+  virtual OSNumber* newProductIDNumber() const override;
+  virtual OSString* newProductString() const override;
+  virtual OSString* newSerialNumberString() const override;
+  virtual OSString* newTransportString() const override;
+  virtual OSNumber* newVendorIDNumber() const override;
 
-    virtual void remapButtons(void *buffer);
-    virtual void remapAxes(void *buffer);
-};
+  virtual OSNumber* newLocationIDNumber() const override;
 
-
-class Xbox360Pretend360Class : public Xbox360ControllerClass
-{
-    OSDeclareDefaultStructors(Xbox360Pretend360Class)
-    
-public:
-    virtual OSString* newProductString() const;
-    virtual OSNumber* newProductIDNumber() const;
-    virtual OSNumber* newVendorIDNumber() const;
-};
+  virtual void remapButtons(void *buffer);
+  virtual void remapAxes(void *buffer);
+  };
 
 
-class XboxOriginalControllerClass : public Xbox360ControllerClass
-{
-    OSDeclareDefaultStructors(XboxOriginalControllerClass)
+  class Xbox360Pretend360Class : public Xbox360ControllerClass
+  {
+  OSDeclareDefaultStructors(Xbox360Pretend360Class)
 
-private:
-    UInt8 lastData[32];
-    UInt32 repeatCount;
-
-public:
-    virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0);
-    virtual IOReturn handleReport(
-                                  IOMemoryDescriptor * report,
-                                  IOHIDReportType      reportType = kIOHIDReportTypeInput,
-                                  IOOptionBits         options    = 0 );
-
-    virtual OSString* newManufacturerString() const;
-    virtual OSNumber* newProductIDNumber() const;
-    virtual OSNumber* newVendorIDNumber() const;
-    virtual OSString* newProductString() const;
-};
+  public:
+  virtual OSString* newProductString() const;
+  virtual OSNumber* newProductIDNumber() const;
+  virtual OSNumber* newVendorIDNumber() const;
+  };
 
 
-class XboxOneControllerClass : public Xbox360ControllerClass
-{
-    OSDeclareDefaultStructors(XboxOneControllerClass)
+  class XboxOriginalControllerClass : public Xbox360ControllerClass
+  {
+  OSDeclareDefaultStructors(XboxOriginalControllerClass)
+
+  private:
+  UInt8 lastData[32];
+  UInt32 repeatCount;
+
+  public:
+  virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0) override;
+  virtual IOReturn handleReport(
+                                IOMemoryDescriptor * report,
+                                IOHIDReportType      reportType = kIOHIDReportTypeInput,
+                                IOOptionBits         options    = 0 ) override;
+
+  virtual OSString* newManufacturerString() const override;
+  virtual OSNumber* newProductIDNumber() const override;
+  virtual OSNumber* newVendorIDNumber() const override;
+  virtual OSString* newProductString() const override;
+  };
+
+
+  class XboxOneControllerClass : public Xbox360ControllerClass
+  {
+  OSDeclareDefaultStructors(XboxOneControllerClass)
 
 #define XboxOne_Prepare(x,t)      {memset(&x,0,sizeof(x));x.header.command=t;x.header.size=sizeof(x-4);}
 
-protected:
-    UInt8 lastData[20];
-    bool isXboxOneGuideButtonPressed;
-    void reorderButtons(UInt16* buttons, UInt8 mapping[]);
-    UInt16 convertButtonPacket(UInt16 buttons);
+  protected:
+  UInt8 lastData[20];
+  bool isXboxOneGuideButtonPressed;
+  void reorderButtons(UInt16* buttons, UInt8 mapping[]);
+  UInt16 convertButtonPacket(UInt16 buttons);
 
-public:
-    virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0);
-    virtual IOReturn handleReport(
-                                  IOMemoryDescriptor * report,
-                                  IOHIDReportType      reportType = kIOHIDReportTypeInput,
-                                  IOOptionBits         options    = 0 );
+  public:
+  virtual IOReturn setReport(IOMemoryDescriptor *report,IOHIDReportType reportType,IOOptionBits options=0);
+  virtual IOReturn handleReport(
+                                IOMemoryDescriptor * report,
+                                IOHIDReportType      reportType = kIOHIDReportTypeInput,
+                                IOOptionBits         options    = 0 );
 
-    virtual void convertFromXboxOne(void *buffer, UInt8 packetSize);
-    virtual OSString* newProductString() const;
-};
+  virtual void convertFromXboxOne(void *buffer, UInt8 packetSize);
+  virtual OSString* newProductString() const;
+  };
 
 
-class XboxOnePretend360Class : public XboxOneControllerClass
-{
-    OSDeclareDefaultStructors(XboxOnePretend360Class)
+  class XboxOnePretend360Class : public XboxOneControllerClass
+  {
+  OSDeclareDefaultStructors(XboxOnePretend360Class)
 
-public:
-    virtual OSString* newProductString() const;
-    virtual OSNumber* newProductIDNumber() const;
-    virtual OSNumber* newVendorIDNumber() const;
-};
+  public:
+  virtual OSString* newProductString() const;
+  virtual OSNumber* newProductIDNumber() const;
+  virtual OSNumber* newVendorIDNumber() const;
+  };
+}

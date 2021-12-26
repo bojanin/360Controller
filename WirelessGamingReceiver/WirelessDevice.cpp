@@ -21,93 +21,78 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "WirelessDevice.h"
+
 #include "WirelessGamingReceiver.h"
 
 OSDefineMetaClassAndStructors(WirelessDevice, IOService)
 #define super IOService
 
-// Initialise wireless device
-bool WirelessDevice::init(OSDictionary *dictionary)
-{
-    if (!super::init(dictionary))
-        return false;
-    index = -1;
-    function = NULL;
-    return true;
+    // Initialise wireless device
+    bool WirelessDevice::init(OSDictionary *dictionary) {
+  if (!super::init(dictionary)) return false;
+  index = -1;
+  function = NULL;
+  return true;
 }
 
 // Checks if there's any data for us
-bool WirelessDevice::IsDataAvailable(void)
-{
-    if (index == -1)
-        return false;
-    WirelessGamingReceiver *receiver = OSDynamicCast(WirelessGamingReceiver, getProvider());
-    if (receiver == NULL)
-        return false;
-    return receiver->IsDataQueued(index);
+bool WirelessDevice::IsDataAvailable(void) {
+  if (index == -1) return false;
+  WirelessGamingReceiver *receiver =
+      OSDynamicCast(WirelessGamingReceiver, getProvider());
+  if (receiver == NULL) return false;
+  return receiver->IsDataQueued(index);
 }
 
 // Gets the next item from our buffer
-IOMemoryDescriptor* WirelessDevice::NextPacket(void)
-{
-    if (index == -1)
-        return NULL;
-    WirelessGamingReceiver *receiver = OSDynamicCast(WirelessGamingReceiver, getProvider());
-    if (receiver == NULL)
-        return NULL;
-    return receiver->ReadBuffer(index);
+IOMemoryDescriptor *WirelessDevice::NextPacket(void) {
+  if (index == -1) return NULL;
+  WirelessGamingReceiver *receiver =
+      OSDynamicCast(WirelessGamingReceiver, getProvider());
+  if (receiver == NULL) return NULL;
+  return receiver->ReadBuffer(index);
 }
 
 // Sends a buffer for this controller
-void WirelessDevice::SendPacket(const void *data, size_t length)
-{
-    if (index == -1)
-        return;
-    WirelessGamingReceiver *receiver = OSDynamicCast(WirelessGamingReceiver, getProvider());
-    if (receiver == NULL)
-        return;
-    receiver->QueueWrite(index, data, (UInt32)length);
+void WirelessDevice::SendPacket(const void *data, size_t length) {
+  if (index == -1) return;
+  WirelessGamingReceiver *receiver =
+      OSDynamicCast(WirelessGamingReceiver, getProvider());
+  if (receiver == NULL) return;
+  receiver->QueueWrite(index, data, (UInt32)length);
 }
 
 // Registers a callback function
-void WirelessDevice::RegisterWatcher(void *target, WirelessDeviceWatcher function, void *parameter)
-{
-    this->target = target;
-    this->parameter = parameter;
-    this->function = function;
-    if ((function != NULL) && IsDataAvailable())
-        NewData();
+void WirelessDevice::RegisterWatcher(void *target,
+                                     WirelessDeviceWatcher function,
+                                     void *parameter) {
+  this->target = target;
+  this->parameter = parameter;
+  this->function = function;
+  if ((function != NULL) && IsDataAvailable()) NewData();
 }
 
 // For internal use, sets this instances index on the wireless gaming receiver
-void WirelessDevice::SetIndex(int i)
-{
-    index = i;
-}
+void WirelessDevice::SetIndex(int i) { index = i; }
 
 // Called when new data arrives
-void WirelessDevice::NewData(void)
-{
-    if (function != NULL)
-        function(target, this, parameter);
+void WirelessDevice::NewData(void) {
+  if (function != NULL) function(target, this, parameter);
 }
 
 // Gets the location ID for this device
-OSNumber* WirelessDevice::newLocationIDNumber() const
-{
-    OSNumber *owner;
-    UInt32 location = 0;
+OSNumber *WirelessDevice::newLocationIDNumber() const {
+  OSNumber *owner;
+  UInt32 location = 0;
 
-    if (index == -1)
-        return NULL;
-    WirelessGamingReceiver *receiver = OSDynamicCast(WirelessGamingReceiver, getProvider());
-    if (receiver == NULL)
-        return NULL;
-    owner = receiver->newLocationIDNumber();
-    if (owner != NULL)
-    {
-        location = owner->unsigned32BitValue() + 1 + index;
-        owner->release();
-    }
-    return OSNumber::withNumber(location, 32);
+  if (index == -1) return NULL;
+  WirelessGamingReceiver *receiver =
+      OSDynamicCast(WirelessGamingReceiver, getProvider());
+  if (receiver == NULL) return NULL;
+  owner = receiver->newLocationIDNumber();
+  if (owner != NULL) {
+    location = owner->unsigned32BitValue() + 1 + index;
+    owner->release();
+  }
+  return OSNumber::withNumber(location, 32);
 }
